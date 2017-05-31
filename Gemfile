@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'sprockets-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -56,3 +58,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 
 end
+
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0alpha6'
+source 'http://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  end
