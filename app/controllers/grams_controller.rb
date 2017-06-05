@@ -3,6 +3,14 @@ class GramsController < ApplicationController
   def index
   end
 
+  def show
+    @gram = Gram.find_by_id(params[:id])
+    if @gram.blank?
+      render plain: 'Not Found :(', status: :not_found
+      end
+    end
+
+
   def new
   @gram = Gram.new
   end
@@ -20,4 +28,4 @@ class GramsController < ApplicationController
     params.require(:gram).permit(:message)
 
   end
-end
+  end
