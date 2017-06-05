@@ -3,4 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :grams  #This sets up the relationship between user and gram
 end
