@@ -6,14 +6,22 @@ class GramsController < ApplicationController
   def show
     @gram = Gram.find_by_id(params[:id])
     if @gram.blank?
-      render plain: 'Not Found :(', status: :not_found
+     render_not_found
       end
+  end
+
+  def edit
+    @gram = Gram.find_by_id(params[:id])
+    if @gram.blank?
+      render_not_found
     end
+  end
 
 
   def new
   @gram = Gram.new
   end
+
   def create
     @gram = current_user.grams.create(gram_params)
     if @gram.valid?
@@ -26,6 +34,15 @@ class GramsController < ApplicationController
   private
   def gram_params
     params.require(:gram).permit(:message)
+  end
 
+  def render_not_found
+    render plain: 'Not Found :(', status: :not_found
+  end
+
+  def update
+    @gram = Gram.find_by_id(params[:id])
+    @gram.update_attributes(gram_params)
+    redirect_to root_path
   end
   end
