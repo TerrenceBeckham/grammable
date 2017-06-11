@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :grams  #This sets up the relationship between user and gram
+  has_many :comments
 
 
 end
